@@ -6,18 +6,24 @@ import { RouterModule } from '@angular/router'
 import { AppComponent } from './app.component'
 import { AuthGuard } from './guards/auth.guard'
 import { AuthedGuard } from './guards/authed.guard'
+import { UserService } from './services/user.service'
 import { AuthService } from './services/auth.service'
 import { LoginComponent } from './login/login.component'
+import { NotifyService } from './services/notify.service'
 import { BrowserModule } from '@angular/platform-browser'
+import { NotifyComponent } from './notify/notify.component'
 import { RegisterComponent } from './register/register.component'
-import { DashboardComponent } from './dashboard/dashboard.component'
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ProfileComponent } from './profile/profile.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     DashboardComponent,
-    LoginComponent
+    LoginComponent,
+    NotifyComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule, 
@@ -28,7 +34,9 @@ import { DashboardComponent } from './dashboard/dashboard.component'
   providers: [
     AuthService,
     AuthGuard,
-    AuthedGuard
+    AuthedGuard,
+    NotifyService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

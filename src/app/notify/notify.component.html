@@ -1,0 +1,7 @@
+<div class="alert alert-success" *ngIf="message && message.type == 'success'">
+  <p class="text-center">{{ message.message }}</p>
+</div>
+
+<div class="alert alert-danger" *ngIf="message && message.type == 'error'">
+  <p class="text-center">{{ message.message }}</p>
+</div>
