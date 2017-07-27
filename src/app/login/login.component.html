@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="panel panel-default">
+        <div class="panel-heading">Login</div>
+        <div class="panel-body">
+          <form class="form-horizontal" #form="ngForm" (ngSubmit)="onSubmit(form)">
+            <ul class="list-group">
+              <li class="list-group-item text-danger" *ngIf="email.errors?.required && email.touched">The email is required</li>
+              <li class="list-group-item text-danger" *ngIf="password.errors?.required && password.touched">The password is required</li>              
+            </ul>
+            <div class="form-group">
+              <label for="email" class="control-label col-md-4">E-mail Address</label>
+
+              <div class="col-md-6">
+                <input id="email" type="email" name="email" #email="ngModel" ngModel class="form-control" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="password" class="col-md-4 control-label">Password</label>
+
+              <div class="col-md-6">
+                <input type="password" name="password" #password="ngModel" ngModel class="form-control" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-md-8 col-md-offset-4">
+                <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
+                  Login
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
