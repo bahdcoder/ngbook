@@ -4,11 +4,12 @@ import { HttpModule } from '@angular/http'
 import { FormsModule } from '@angular/forms'
 import { RouterModule } from '@angular/router'
 import { AppComponent } from './app.component'
+import { AuthGuard } from './guards/auth.guard'
 import { AuthService } from './services/auth.service'
-import { BrowserModule } from '@angular/platform-browser'
-import { RegisterComponent } from './register/register.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component'
+import { BrowserModule } from '@angular/platform-browser'
+import { RegisterComponent } from './register/register.component'
+import { DashboardComponent } from './dashboard/dashboard.component'
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { LoginComponent } from './login/login.component'
     RouterModule.forRoot(ROUTES)
   ],
   providers: [
-    AuthService
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
