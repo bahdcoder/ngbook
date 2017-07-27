@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms'
 import { RouterModule } from '@angular/router'
 import { AppComponent } from './app.component'
 import { AuthGuard } from './guards/auth.guard'
+import { AuthedGuard } from './guards/authed.guard'
 import { AuthService } from './services/auth.service'
 import { LoginComponent } from './login/login.component'
 import { BrowserModule } from '@angular/platform-browser'
@@ -26,7 +27,8 @@ import { DashboardComponent } from './dashboard/dashboard.component'
   ],
   providers: [
     AuthService,
-    AuthGuard
+    AuthGuard,
+    AuthedGuard
   ],
   bootstrap: [AppComponent]
 })
