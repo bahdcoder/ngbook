@@ -1,3 +1,4 @@
+<ng-progress></ng-progress>
 <nav class="navbar navbar-default navbar-static-top">
   <div class="container">
     <div class="navbar-header">
@@ -8,6 +9,7 @@
     <div>
       <ul class="nav navbar-nav">
         <li><a>All jokes</a></li>
+        <li><a *ngIf="isLoggedIn()" [routerLink]="['user/profile', user.id]">My Profile</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">

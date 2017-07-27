@@ -1,0 +1,22 @@
+<div class="col-md-12" *ngIf="user">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			Edit Profile
+		</div>
+		<div class="panel-body">
+			<form (ngSubmit)="editProfile()">
+				<div class="form-group">
+					<label>Your name</label>
+					<input type="text" class="form-control" [(ngModel)]="user.name" [ngModelOptions]="{ standalone: true }">
+				</div>
+				<div class="form-group">
+					<label>Your email</label>
+					<input type="email" class="form-control" [(ngModel)]="user.email" [ngModelOptions]="{ standalone: true }">
+				</div>
+				<div class="form-group">
+					<button type="submit" class="btn btn-success">Save changes 	</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

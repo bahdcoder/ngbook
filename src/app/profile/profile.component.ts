@@ -1,4 +1,6 @@
+import { User } from './../classes/User'
 import { Component, OnInit } from '@angular/core'
+import { AuthService } from './../services/auth.service'
 import { UserService } from './../services/user.service'
 import { CanActivate, ActivatedRoute } from '@angular/router'
 
@@ -9,10 +11,16 @@ import { CanActivate, ActivatedRoute } from '@angular/router'
 })
 export class ProfileComponent implements OnInit {
   id: number 
+  user: User 
   constructor(
     private router: ActivatedRoute,
-    private userService: UserService
+    private userService: UserService,
+    private authService: AuthService 
   ) { }
+
+  isAuthUserProfile(): boolean {
+    return +this.id === +this.authService.getAuthUserId() 
+  }
 
   ngOnInit() {
     this.router.params.subscribe(params => {
@@ -20,6 +28,7 @@ export class ProfileComponent implements OnInit {
     })
 
     this.userService.getUserById(this.id)
+                    .then(user => { this.user = user })
   }
 
 }
