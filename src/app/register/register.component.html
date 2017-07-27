@@ -5,7 +5,6 @@
         <div class="panel-heading">Register</div>
         <div class="panel-body">
           <form class="form-horizontal" #form="ngForm" novalidate (ngSubmit)="onSubmit(form)">
-            {{ form.value | json }}
             <ul class="list-group">
               <li class="list-group-item text-danger" *ngIf="userName.errors?.required && userName.touched">The name is required</li>
               <li class="list-group-item text-danger" *ngIf="userEmail.errors?.required && userEmail.touched">The email is required</li>     
