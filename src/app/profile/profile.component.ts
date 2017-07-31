@@ -16,7 +16,9 @@ export class ProfileComponent implements OnInit {
     private router: ActivatedRoute,
     private userService: UserService,
     private authService: AuthService 
-  ) { }
+  ) {
+    this.userService.userProfileUpdated.subscribe(user => { this.user = user })
+   }
 
   isAuthUserProfile(): boolean {
     return +this.id === +this.authService.getAuthUserId() 

@@ -1,6 +1,8 @@
 import { User } from './../../classes/User'
 import { Component, OnInit } from '@angular/core'
 import { AuthService } from './../../services/auth.service'
+import { UserService } from './../../services/user.service'
+import { NotifyService } from './../../services/notify.service'
 
 @Component({
   selector: 'app-edit-profile',
@@ -10,15 +12,21 @@ import { AuthService } from './../../services/auth.service'
 export class EditProfileComponent implements OnInit {
   user: User 
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
+    private userService: UserService,
+    private notifyService: NotifyService
   ) { }
 
   ngOnInit() {
     this.user = this.authService.getAuthUser()
   }
 
-  editProfile() {
-    alert('changes saved')
+editProfile() {
+    this.userService.updateProfile(this.user.name, this.user.email)
+                    .then(user => {
+                      this.user = user 
+                      this.notifyService.notify('Profile successfully updated ', 'success')
+                    })
   }
 
 }
