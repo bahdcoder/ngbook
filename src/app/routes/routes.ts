@@ -5,6 +5,7 @@ import { WallComponent } from './../profile/wall/wall.component'
 import { ProfileComponent } from './../profile/profile.component'
 import { RegisterComponent } from './../register/register.component'
 import { DashboardComponent } from './../dashboard/dashboard.component'
+import { CreateJokeComponent } from './../create-joke/create-joke.component'
 import { EditProfileComponent } from './../profile/edit-profile/edit-profile.component'
 
 export const ROUTES = [
@@ -37,5 +38,9 @@ export const ROUTES = [
                 component: EditProfileComponent 
             }
         ]
+    },
+    {
+        path: 'create/joke',
+        component: CreateJokeComponent
     }
 ]

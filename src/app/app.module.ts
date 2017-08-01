@@ -20,7 +20,8 @@ import { ProfileComponent } from './profile/profile.component'
 import { RegisterComponent } from './register/register.component'
 import { FollowComponent } from './profile/follow/follow.component'
 import { DashboardComponent } from './dashboard/dashboard.component'
-import { EditProfileComponent } from './profile/edit-profile/edit-profile.component'
+import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
+import { CreateJokeComponent } from './create-joke/create-joke.component'
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { EditProfileComponent } from './profile/edit-profile/edit-profile.compon
     PrettyDatePipe,
     WallComponent,
     EditProfileComponent,
-    FollowComponent
+    FollowComponent,
+    CreateJokeComponent
   ],
   imports: [
     BrowserModule, 
