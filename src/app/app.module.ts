@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core'
 import { ROUTES } from './routes/routes'
 import { HttpModule } from '@angular/http'
-import { FormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { RouterModule } from '@angular/router'
 import { AppComponent } from './app.component'
 import { AuthGuard } from './guards/auth.guard'
@@ -40,6 +40,7 @@ import { CreateJokeComponent } from './create-joke/create-joke.component'
   imports: [
     BrowserModule, 
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     RouterModule.forRoot(ROUTES),
     NgProgressModule
