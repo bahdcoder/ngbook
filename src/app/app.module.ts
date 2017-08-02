@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core'
 import { ROUTES } from './routes/routes'
 import { HttpModule } from '@angular/http'
+<<<<<<< HEAD
+=======
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+>>>>>>> streaming
 import { RouterModule } from '@angular/router'
 import { AppComponent } from './app.component'
 import { AuthGuard } from './guards/auth.guard'
@@ -21,8 +25,12 @@ import { RegisterComponent } from './register/register.component'
 import { FollowComponent } from './profile/follow/follow.component'
 import { DashboardComponent } from './dashboard/dashboard.component'
 import { CreateJokeComponent } from './create-joke/create-joke.component'
+<<<<<<< HEAD
 import { EditProfileComponent } from './profile/edit-profile/edit-profile.component'
 
+=======
+import { JokeService } from './services/jokes.service'
+>>>>>>> streaming
 
 @NgModule({
   declarations: [
@@ -41,6 +49,7 @@ import { EditProfileComponent } from './profile/edit-profile/edit-profile.compon
   imports: [
     BrowserModule, 
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     RouterModule.forRoot(ROUTES),
     NgProgressModule,
@@ -52,7 +61,8 @@ import { EditProfileComponent } from './profile/edit-profile/edit-profile.compon
     AuthedGuard,
     NotifyService,
     UserService,
-    FollowService 
+    FollowService,
+    JokeService
   ],
   bootstrap: [AppComponent]
 })

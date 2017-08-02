@@ -5,6 +5,7 @@
 					Create joke
 				</div>
 				<div class="panel-body">
+<<<<<<< HEAD
 					<form novalidate [formGroup]="jokeForm" (ngSubmit)="onSubmit()">
 						<ul class="list-group">
 							<li class="list-group-item text-danger" *ngIf="jokeForm.get('title').hasError('required') && jokeForm.get('title').touched">
@@ -15,15 +16,38 @@
 							<label>Joke title</label>
 							{{ jokeForm.value | json }}
 							{{ jokeForm.status | json }}
+=======
+					<form [formGroup]="jokeForm" (ngSubmit)="onSubmit()">
+							<ul class="list-group">
+								<li class="list-group-item text-danger" *ngIf="jokeForm.get('title').hasError('required') && jokeForm.get('title').touched">
+									The title is required
+								</li>
+								<li class="list-group-item text-danger" *ngIf="jokeForm.get('content').hasError('required') && jokeForm.get('content').touched">
+									The content is required
+								</li>
+								<li class="list-group-item text-danger" *ngIf="jokeForm.get('content').hasError('minlength') && jokeForm.get('content').touched">
+									The content must be greater than 5 characters 
+								</li>
+							</ul>
+						<div class="form-group">
+							<label>Joke title</label>
+>>>>>>> streaming
 							<input type="text" class="form-control" formControlName="title">
 						</div>
 						<div class="form-group">
 							<label>Joke content</label>
+<<<<<<< HEAD
 							<textarea cols="5" rows="5" formControlName="content" class="form-control"></textarea>
 						</div>
 						<div class="form-group text-center">
 							<button class="btn btn-info" 
 							[disabled]="jokeForm.invalid">
+=======
+							<textarea cols="5" rows="5" class="form-control" formControlName="content"></textarea>
+						</div>
+						<div class="form-group text-center">
+							<button class="btn btn-info" [disabled]="jokeForm.invalid">
+>>>>>>> streaming
 								Create Joke
 							</button>
 						</div>
