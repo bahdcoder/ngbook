@@ -22,6 +22,7 @@ import { FollowComponent } from './profile/follow/follow.component'
 import { DashboardComponent } from './dashboard/dashboard.component'
 import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
 import { CreateJokeComponent } from './create-joke/create-joke.component'
+import { JokeService } from './services/jokes.service'
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { CreateJokeComponent } from './create-joke/create-joke.component'
     AuthedGuard,
     NotifyService,
     UserService,
-    FollowService 
+    FollowService,
+    JokeService
   ],
   bootstrap: [AppComponent]
 })

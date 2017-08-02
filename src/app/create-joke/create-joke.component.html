@@ -5,12 +5,16 @@
 					Create joke
 				</div>
 				<div class="panel-body">
-					<form [formGroup]="jokeForm">
-							{{ jokeForm.value | json }}
-							{{ jokeForm.status | json }}
+					<form [formGroup]="jokeForm" (ngSubmit)="onSubmit()">
 							<ul class="list-group">
-								<li class="list-group-item text-danger" *ngIf="jokeForm.get('title').hasErrors">
-									The title has some errors 
+								<li class="list-group-item text-danger" *ngIf="jokeForm.get('title').hasError('required') && jokeForm.get('title').touched">
+									The title is required
+								</li>
+								<li class="list-group-item text-danger" *ngIf="jokeForm.get('content').hasError('required') && jokeForm.get('content').touched">
+									The content is required
+								</li>
+								<li class="list-group-item text-danger" *ngIf="jokeForm.get('content').hasError('minlength') && jokeForm.get('content').touched">
+									The content must be greater than 5 characters 
 								</li>
 							</ul>
 						<div class="form-group">

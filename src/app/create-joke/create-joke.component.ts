@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core'
+import { JokeService } from './../services/jokes.service'
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'
 @Component({
   selector: 'app-create-joke',
@@ -8,7 +9,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms'
 export class CreateJokeComponent implements OnInit {
   public jokeForm: FormGroup 
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private jokeService: JokeService
   ) {
     this.createForm()
    }
@@ -26,6 +28,14 @@ export class CreateJokeComponent implements OnInit {
    }
 
   ngOnInit() {
+  }
+
+  onSubmit() {
+    console.log(this.jokeForm.value )
+    this.jokeService.createJoke(this.jokeForm.value)
+                    .then(resp => {
+                      console.log(resp)
+                    })
   }
 
 }
