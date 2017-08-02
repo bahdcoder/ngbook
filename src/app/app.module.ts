@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core'
 import { ROUTES } from './routes/routes'
 import { HttpModule } from '@angular/http'
-import { FormsModule } from '@angular/forms'
 import { RouterModule } from '@angular/router'
 import { AppComponent } from './app.component'
 import { AuthGuard } from './guards/auth.guard'
@@ -17,11 +16,13 @@ import { BrowserModule } from '@angular/platform-browser'
 import { NotifyComponent } from './notify/notify.component'
 import { WallComponent } from './profile/wall/wall.component'
 import { ProfileComponent } from './profile/profile.component'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { RegisterComponent } from './register/register.component'
 import { FollowComponent } from './profile/follow/follow.component'
 import { DashboardComponent } from './dashboard/dashboard.component'
-import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
 import { CreateJokeComponent } from './create-joke/create-joke.component'
+import { EditProfileComponent } from './profile/edit-profile/edit-profile.component'
+
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { CreateJokeComponent } from './create-joke/create-joke.component'
     FormsModule,
     HttpModule,
     RouterModule.forRoot(ROUTES),
-    NgProgressModule
+    NgProgressModule,
+    ReactiveFormsModule
   ],
   providers: [
     AuthService,

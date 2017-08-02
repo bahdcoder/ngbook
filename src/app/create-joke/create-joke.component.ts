@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
+import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms'
 
 @Component({
   selector: 'app-create-joke',
@@ -6,10 +7,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-joke.component.css']
 })
 export class CreateJokeComponent implements OnInit {
-
-  constructor() { }
+  public jokeForm: FormGroup 
+  constructor(
+    private fb: FormBuilder
+  ) {
+    this.createJokeForm() 
+   }
 
   ngOnInit() {
   }
 
+  createJokeForm() {
+    this.jokeForm = this.fb.group({
+      title: ['', Validators.required],
+      content: ['', [
+        Validators.required,
+        Validators.minLength(6)
+      ]]
+    })
+  }
+
+  onSubmit() {
+    console.log(this.jokeForm.value)
+  }
+
+  isValid() {
+    return this.jokeForm.status == 'VALID'
+  }
 }

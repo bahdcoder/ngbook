@@ -5,17 +5,25 @@
 					Create joke
 				</div>
 				<div class="panel-body">
-					<form>
+					<form novalidate [formGroup]="jokeForm" (ngSubmit)="onSubmit()">
+						<ul class="list-group">
+							<li class="list-group-item text-danger" *ngIf="jokeForm.get('title').hasError('required') && jokeForm.get('title').touched">
+								The title is required
+							</li>
+						</ul>
 						<div class="form-group">
 							<label>Joke title</label>
-							<input type="text" class="form-control">
+							{{ jokeForm.value | json }}
+							{{ jokeForm.status | json }}
+							<input type="text" class="form-control" formControlName="title">
 						</div>
 						<div class="form-group">
 							<label>Joke content</label>
-							<textarea cols="5" rows="5" class="form-control"></textarea>
+							<textarea cols="5" rows="5" formControlName="content" class="form-control"></textarea>
 						</div>
 						<div class="form-group text-center">
-							<button class="btn btn-info">
+							<button class="btn btn-info" 
+							[disabled]="jokeForm.invalid">
 								Create Joke
 							</button>
 						</div>
