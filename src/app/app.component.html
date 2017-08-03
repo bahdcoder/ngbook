@@ -10,6 +10,8 @@
       <ul class="nav navbar-nav">
         <li><a>All jokes</a></li>
         <li><a *ngIf="isLoggedIn()" [routerLink]="['user/profile', user.id]">My Profile</a></li>
+        <li><a *ngIf="isLoggedIn()" [routerLink]="['user/profile', 1]">Your Profile</a></li>
+        <li><a *ngIf="isLoggedIn()" [routerLink]="['user/profile', 2]">His Profile</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">

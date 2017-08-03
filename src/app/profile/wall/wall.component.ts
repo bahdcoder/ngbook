@@ -19,9 +19,10 @@ export class WallComponent implements OnInit {
   ngOnInit() {
     this.router.params.subscribe(params => {
       this.id = +params['id']
+      this.getUserWall()
     })
 
-    this.getUserWall()
+    //this.getUserWall()
   }
 
   getUserWall() {
