@@ -33,6 +33,13 @@ export class UserService {
                         .then(response => response.json())
     }
 
+    getUserWall(id: number) {
+        let options = new RequestOptions({ headers: this.headers })
+        return this.http.get(`${CONFIG.API_URL}/user/profile/${id}/wall`, options)
+                        .toPromise()
+                        .then(response => response.json())
+    }
+
     updateProfile(name: string, email: string): Promise<User> {
         this.bar.start()
         let url = `${CONFIG.API_URL}/user/update`
