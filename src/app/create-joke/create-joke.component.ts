@@ -1,11 +1,6 @@
 import { Component, OnInit } from '@angular/core'
-<<<<<<< HEAD
-import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms'
-
-=======
 import { JokeService } from './../services/jokes.service'
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'
->>>>>>> streaming
 @Component({
   selector: 'app-create-joke',
   templateUrl: './create-joke.component.html',
@@ -35,25 +30,6 @@ export class CreateJokeComponent implements OnInit {
   ngOnInit() {
   }
 
-<<<<<<< HEAD
-  createJokeForm() {
-    this.jokeForm = this.fb.group({
-      title: ['', Validators.required],
-      content: ['', [
-        Validators.required,
-        Validators.minLength(6)
-      ]]
-    })
-  }
-
-  onSubmit() {
-    console.log(this.jokeForm.value)
-  }
-
-  isValid() {
-    return this.jokeForm.status == 'VALID'
-  }
-=======
   onSubmit() {
     console.log(this.jokeForm.value )
     this.jokeService.createJoke(this.jokeForm.value)
@@ -62,5 +38,4 @@ export class CreateJokeComponent implements OnInit {
                     })
   }
 
->>>>>>> streaming
 }
