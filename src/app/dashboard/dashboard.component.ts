@@ -16,8 +16,16 @@ export class DashboardComponent implements OnInit {
     this.getJokes()
   }
 
-  getJokes() {
-    this.jokeService.getAllJokes()
+  getNextJokes() {
+    this.getJokes(this.data.next_page_url)
+  }
+
+  getPrevJokes() {
+    this.getJokes(this.data.prev_page_url)
+  }
+
+  getJokes(endPoint = null) {
+    this.jokeService.getAllJokes(endPoint)
                     .then(resp => {
                       console.log(resp)
                       this.data = resp 
