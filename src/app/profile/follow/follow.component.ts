@@ -19,6 +19,7 @@ export class FollowComponent implements OnInit {
                       .then(response => {
                         this.isFollowing = response 
                         this.isLoading = false 
+                        console.log(response)
                       })
   }
 
