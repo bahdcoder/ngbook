@@ -9,6 +9,7 @@
     <div>
       <ul class="nav navbar-nav">
         <li><a *ngIf="isLoggedIn()" routerLink="/dashboard">Dashboard</a></li>
+        <li><a *ngIf="isLoggedIn()" routerLink="/create/joke">Create joke</a></li>
         <li><a *ngIf="isLoggedIn()" [routerLink]="['user/profile', user.id]">My Profile</a></li>
       </ul>
 
