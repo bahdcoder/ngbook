@@ -1,10 +1,16 @@
  <div class="panel panel-default" *ngIf="joke">
     <div class="panel-heading">
-      {{ joke.title }}
+      <span>{{ joke.title }}</span>
+      <span class="pull-right">
+        <a [routerLink]="['/user/profile', joke.user.id]">{{ joke.user.name }}</a>
+      </span>
     </div>
     <div class="panel-body">
       <p class="text-center">
         {{ joke.joke }}
       </p>
+    </div>
+    <div class="panel-footer">
+      {{ joke.created_at | prettyDate }}
     </div>
   </div>

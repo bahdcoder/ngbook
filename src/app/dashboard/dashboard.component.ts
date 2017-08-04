@@ -29,6 +29,7 @@ export class DashboardComponent implements OnInit {
                     .then(resp => {
                       window.scrollTo(0,0)
                       this.data = resp 
+                      console.log(resp)
                     })
   }
 }

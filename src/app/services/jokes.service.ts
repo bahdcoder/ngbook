@@ -35,10 +35,12 @@ export class JokeService {
         } else { 
             url = `${CONFIG.API_URL}/jokes`
         }
+        this.bar.start()
         let options = new RequestOptions({ headers: this.headers })
         return this.http.get(url, options)
                         .toPromise()
                         .then(resp => {
+                            this.bar.done()
                             return resp.json() 
                         })
     }

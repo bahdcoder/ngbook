@@ -2,6 +2,8 @@
   Welcome to your dashboard
 </h1>
 
+<br>
+
 <div *ngIf="data">
   <div *ngFor="let joke of data.data">
     <app-joke [joke]="joke"></app-joke>
@@ -15,7 +17,7 @@
   (click)="getPrevJokes()">
     Previous page
   </button>
-  <button class="btn btn-info btn-lg pull-right"
+  <button class="btn btn-primary btn-lg pull-right"
   [disabled]="!data.next_page_url"
   (click)="getNextJokes()">
     Next page

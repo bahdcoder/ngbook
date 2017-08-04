@@ -26,18 +26,25 @@ export class UserService {
 
     getUserById(id): Promise<User> {
         if(id == this.authService.getAuthUserId) return Promise.resolve(this.authService.getAuthUser())
-
+        this.bar.start()
         let options = new RequestOptions({ headers: this.headers })
         return this.http.get(`${CONFIG.API_URL}/user/${id}`, options)
                         .toPromise()
-                        .then(response => response.json())
+                        .then(response => {
+                            this.bar.done() 
+                            return response.json()
+                        })
     }
 
     getUserWall(id: number) {
+        this.bar.start()
         let options = new RequestOptions({ headers: this.headers })
         return this.http.get(`${CONFIG.API_URL}/user/profile/${id}/wall`, options)
                         .toPromise()
-                        .then(response => response.json())
+                        .then(response => {
+                            this.bar.done() 
+                            return response.json()
+                        })
     }
 
     updateProfile(name: string, email: string): Promise<User> {

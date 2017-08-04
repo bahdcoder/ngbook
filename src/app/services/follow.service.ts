@@ -21,12 +21,14 @@ export class FollowService {
     }
 
     isFollowing(id: number): Promise<boolean> {
+        this.bar.start()
         let url = `${CONFIG.API_URL}/user/is/following`
         let body = { user_to_check_if_is_following_id: id }
         let options = new RequestOptions({ headers: this.headers })
         return this.http.post(url, body, options)
                         .toPromise()
                         .then(response => {
+                            this.bar.done()
                             return response.json().following
                         })
     }
