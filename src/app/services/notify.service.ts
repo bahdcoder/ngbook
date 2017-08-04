@@ -1,5 +1,5 @@
-import { Injectable, EventEmitter } from '@angular/core'
 import { Message } from './../classes/message'
+import { Injectable, EventEmitter } from '@angular/core'
 
 @Injectable()
 export class NotifyService {
