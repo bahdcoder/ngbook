@@ -3,15 +3,8 @@
 </h1>
 
 <div *ngIf="data">
-  <div class="panel panel-default" *ngFor="let joke of data.data">
-    <div class="panel-heading">
-      {{ joke.title }}
-    </div>
-    <div class="panel-body">
-      <p class="text-center">
-        {{ joke.joke }}
-      </p>
-    </div>
+  <div *ngFor="let joke of data.data">
+    <app-joke [joke]="joke"></app-joke>
   </div>
 
   <br>

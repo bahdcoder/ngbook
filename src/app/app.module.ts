@@ -22,7 +22,8 @@ import { RegisterComponent } from './register/register.component'
 import { FollowComponent } from './profile/follow/follow.component'
 import { DashboardComponent } from './dashboard/dashboard.component'
 import { CreateJokeComponent } from './create-joke/create-joke.component'
-import { EditProfileComponent } from './profile/edit-profile/edit-profile.component'
+import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
+import { JokeComponent } from './joke/joke.component'
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { EditProfileComponent } from './profile/edit-profile/edit-profile.compon
     WallComponent,
     EditProfileComponent,
     FollowComponent,
-    CreateJokeComponent
+    CreateJokeComponent,
+    JokeComponent
   ],
   imports: [
     BrowserModule, 

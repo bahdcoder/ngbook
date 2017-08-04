@@ -27,7 +27,7 @@ export class DashboardComponent implements OnInit {
   getJokes(endPoint = null) {
     this.jokeService.getAllJokes(endPoint)
                     .then(resp => {
-                      console.log(resp)
+                      window.scrollTo(0,0)
                       this.data = resp 
                     })
   }
