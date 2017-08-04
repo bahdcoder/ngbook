@@ -4,8 +4,8 @@
 
 <br>
 
-<div *ngIf="jokes">
-  <div class="panel panel-default" *ngFor="let joke of jokes">
+<div *ngIf="data">
+  <div class="panel panel-default" *ngFor="let joke of data.data">
     <div class="panel-heading">
       {{ joke.title }}
     </div>
@@ -15,18 +15,24 @@
       </p>
     </div>
   </div>
+
+  <br>
+  <br>
+  <button class="btn btn-lg btn-default"
+  [disabled]="!data.prev_page_url"
+  (click)="getPrevJokes()"
+  >
+    Previous
+  </button>
+  <button class="btn btn-lg btn-info pull-right"
+  [disabled]="!data.next_page_url"
+  (click)="getNextJokes()">
+    Next
+  </button>
 </div>
 
 <br>
 
-<button class="btn btn-lg btn-default"
-  [disabled]="!prev_page_url">
-  Previous
-</button>
-<button class="btn btn-lg btn-info pull-right"
-[disabled]="!next_page_url">
-  Next
-</button>
 
 <br>
 <br>

@@ -27,4 +27,21 @@ export class JokeService {
                             return resp.json() 
                         })
     }
+
+    getAllJokes(endPoint = null) {
+        console.log('getting jokes ...')
+        let url 
+        if(endPoint) {
+            url = endPoint
+        } else {
+            url = `${CONFIG.API_URL}/jokes`
+        }
+        
+        let options = new RequestOptions({ headers: this.headers })
+        return this.http.get(url, options)
+             .toPromise() 
+             .then(resp => {
+               return resp.json() 
+             })
+    }
 }
