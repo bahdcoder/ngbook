@@ -30,6 +30,8 @@ export class ProfileComponent implements OnInit {
       this.userService.getUserById(this.id)
                     .then(user => { this.user = user })
     })
+
+    
   }
 
 }
