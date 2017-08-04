@@ -58,9 +58,9 @@ export class UserService {
                    })
     }
 
-    getAuthUserFeed() {
+    getAuthUserFeed(page) {
         let options = new RequestOptions({ headers: this.headers })
-        return this.http.get(`${CONFIG.API_URL}/user/get/feed`, options)
+        return this.http.get(`${CONFIG.API_URL}/user/get/feed${page}`, options)
                         .toPromise()
                         .then(response => response.json())
     }

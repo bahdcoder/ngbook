@@ -1,3 +1,33 @@
 <h1 class="text-center">
-  Welcome to your dashboard
+  Welcome to your feed
 </h1>
+
+<br>
+
+<div *ngIf="jokes">
+  <div class="panel panel-default" *ngFor="let joke of jokes">
+    <div class="panel-heading">
+      {{ joke.title }}
+    </div>
+    <div class="panel-body">
+      <p class="text-center">
+        {{ joke.joke }}
+      </p>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<button class="btn btn-lg btn-default"
+  [disabled]="!prev_page_url">
+  Previous
+</button>
+<button class="btn btn-lg btn-info pull-right"
+[disabled]="!next_page_url">
+  Next
+</button>
+
+<br>
+<br>
+<br>

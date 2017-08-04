@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core'
 import { ROUTES } from './routes/routes'
+import { InfiniteScrollModule } from 'ngx-infinite-scroll'
 import { HttpModule } from '@angular/http'
 import { RouterModule } from '@angular/router'
 import { AppComponent } from './app.component'
@@ -45,7 +46,9 @@ import { EditProfileComponent } from './profile/edit-profile/edit-profile.compon
     HttpModule,
     RouterModule.forRoot(ROUTES),
     NgProgressModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
+    InfiniteScrollModule
   ],
   providers: [
     AuthService,
