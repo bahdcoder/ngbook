@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core'
 import { Router } from '@angular/router'
+import { Component, OnInit } from '@angular/core'
 import { JokeService } from './../services/jokes.service'
 import { AuthService } from './../services/auth.service'
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'
