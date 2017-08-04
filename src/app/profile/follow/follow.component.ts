@@ -15,7 +15,6 @@ export class FollowComponent implements OnInit, OnChanges {
   ) { }
 
   ngOnChanges(changes) {
-    this.currentProfileId = 
     this.checkIfFollowing()
   }
 

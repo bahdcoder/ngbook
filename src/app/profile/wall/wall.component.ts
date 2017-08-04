@@ -29,7 +29,6 @@ export class WallComponent implements OnInit {
     this.userService.getUserWall(this.id)
                     .then(resp => {
                       this.jokes = resp.data 
-                      console.log(resp)
                     })
   }
 
