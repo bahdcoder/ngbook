@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
 import { UserService } from './../../services/user.service'
+import { NotifyService } from '../../services/notify.service'
 
 @Component({
   selector: 'app-wall',
@@ -13,7 +14,8 @@ export class WallComponent implements OnInit {
   public id: number 
   constructor(
     private userService: UserService,
-    private router: ActivatedRoute
+    private router: ActivatedRoute,
+    private noty: NotifyService
   ) { }
 
   ngOnInit() {
@@ -23,6 +25,18 @@ export class WallComponent implements OnInit {
     })
 
     
+  }
+
+  jokeDeleted(jokeId) {
+    let joke = this.jokes.find((j) => {
+      return j.id == jokeId 
+    })
+
+    let jokeIndex = this.jokes.indexOf(joke)
+
+    this.jokes.splice(jokeIndex, 1)
+
+    this.noty.notify('Joke deleted', 'success')
   }
 
   getUserWall() {

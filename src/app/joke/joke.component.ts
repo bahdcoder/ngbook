@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core'
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core'
 import { AuthService } from '../services/auth.service'
 import { FormControl, Validators } from '@angular/forms'
 import { JokeService } from '../services/jokes.service'
@@ -11,6 +11,7 @@ import { NotifyService } from '../services/notify.service'
 })
 export class JokeComponent implements OnInit {
   @Input() joke 
+  @Output() jokeDeleted = new EventEmitter()
   editing: boolean = false 
   title: FormControl
   content: FormControl
@@ -48,6 +49,13 @@ export class JokeComponent implements OnInit {
     this.title.reset()
     this.content.reset() 
     this.editing = false 
+  }
+
+  deleteJoke() {
+    this.jokeService.deleteJoke(this.joke.id)
+                    .then(resp => {
+                      this.jokeDeleted.emit(this.joke.id)
+                    })
   }
 
 }
