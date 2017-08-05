@@ -30,6 +30,19 @@ export class JokeService {
                         })
     }
 
+    updateJoke(id: number, joke) {
+        let url = `${CONFIG.API_URL}/jokes/${id}`
+        this.bar.start()
+        let body = { title: joke.title, joke: joke.content }
+        let options = new RequestOptions({ headers: this.headers })
+        return this.http.put(url, body, options)
+                        .toPromise()
+                        .then(resp => {
+                            this.bar.done() 
+                            return resp.json() 
+                        })
+    }
+
     getAllJokes(endPoint = null) {
         let url
         if(endPoint) {

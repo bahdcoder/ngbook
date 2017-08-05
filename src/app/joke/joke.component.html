@@ -24,7 +24,14 @@
         <button class="btn btn-xs btn-info pull-right" (click)="edit()" style="margin-right: 5px;">Edit</button>
       </span>
       <span *ngIf="editing">
-        <button class="btn btn-primary pull-right">Save changes</button>
+        <button class="btn btn-primary btn-xs pull-right"
+        style="margin-right: 5px;"
+        (click)="cancel()"
+        >Cancel changes</button>
+        <button class="btn btn-primary btn-xs pull-right" 
+        [disabled]="title.invalid || content.invalid"
+        (click)="updateJoke()"
+        >Save changes</button>
       </span>
     </div>
   </div>

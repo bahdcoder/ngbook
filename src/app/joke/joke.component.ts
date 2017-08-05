@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core'
 import { AuthService } from '../services/auth.service'
-import { FormControl } from '@angular/forms'
+import { FormControl, Validators } from '@angular/forms'
+import { JokeService } from '../services/jokes.service'
+import { NotifyService } from '../services/notify.service'
 
 @Component({
   selector: 'app-joke',
@@ -13,12 +15,14 @@ export class JokeComponent implements OnInit {
   title: FormControl
   content: FormControl
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
+    private jokeService: JokeService,
+    private notify: NotifyService
   ) { }
 
   ngOnInit() {
-    this.title = new FormControl(this.joke.title)
-    this.content = new FormControl(this.joke.joke)
+    this.title = new FormControl(this.joke.title, Validators.required)
+    this.content = new FormControl(this.joke.joke, Validators.required)
   }
 
   canModify() : boolean { 
@@ -27,6 +31,23 @@ export class JokeComponent implements OnInit {
 
   edit() {
     this.editing = true 
+  }
+
+  updateJoke() {
+    this.jokeService.updateJoke(+this.joke.id, {
+      title: this.title.value,
+      content: this.content.value,
+    }).then(resp => {
+      this.joke = resp 
+      this.editing = false 
+      this.notify.notify('Joke updated', 'success')
+    })
+  }
+
+  cancel() {
+    this.title.reset()
+    this.content.reset() 
+    this.editing = false 
   }
 
 }
