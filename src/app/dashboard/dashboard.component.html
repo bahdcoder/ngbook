@@ -1,48 +1,10 @@
 <h1 class="text-center">
-<<<<<<< HEAD
-  Welcome to your feed
-=======
   Welcome to your dashboard
->>>>>>> streaming
 </h1>
 
 <br>
 
 <div *ngIf="data">
-<<<<<<< HEAD
-  <div class="panel panel-default" *ngFor="let joke of data.data">
-    <div class="panel-heading">
-      {{ joke.title }}
-    </div>
-    <div class="panel-body">
-      <p class="text-center">
-        {{ joke.joke }}
-      </p>
-    </div>
-  </div>
-
-  <br>
-  <br>
-  <button class="btn btn-lg btn-default"
-  [disabled]="!data.prev_page_url"
-  (click)="getPrevJokes()"
-  >
-    Previous
-  </button>
-  <button class="btn btn-lg btn-info pull-right"
-  [disabled]="!data.next_page_url"
-  (click)="getNextJokes()">
-    Next
-  </button>
-</div>
-
-<br>
-
-
-<br>
-<br>
-<br>
-=======
   <div *ngFor="let joke of data.data">
     <app-joke [joke]="joke"></app-joke>
   </div>
@@ -65,4 +27,3 @@
   <br>
   <br>
 </div>
->>>>>>> streaming
