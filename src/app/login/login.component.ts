@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { AuthService } from './../services/auth.service'
+import { NotifyService } from './../services/notify.service'
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -8,7 +10,8 @@ import { AuthService } from './../services/auth.service'
 export class LoginComponent implements OnInit {
 
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
+    private noty: NotifyService
   ) { }
 
   ngOnInit() {
@@ -19,6 +22,10 @@ export class LoginComponent implements OnInit {
                      .then(userData => {
                        this.authService.logUserIn(userData)
                      }) 
+                      .catch(e => {
+                        console.log(e)
+                        this.noty.notify(e.error, 'error')
+                      })
   }
 
 }

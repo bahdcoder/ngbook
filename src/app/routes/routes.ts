@@ -1,5 +1,6 @@
 import { AuthGuard } from './../guards/auth.guard'
 import { AuthedGuard } from './../guards/authed.guard'
+import { HomeComponent } from './../home/home.component'
 import { LoginComponent } from './../login/login.component'
 import { WallComponent } from './../profile/wall/wall.component'
 import { ProfileComponent } from './../profile/profile.component'
@@ -12,6 +13,11 @@ export const ROUTES = [
     {
         path: 'auth/register',
         component: RegisterComponent,
+        canActivate: [AuthedGuard]
+    },
+    {
+        path: '',
+        component: HomeComponent,
         canActivate: [AuthedGuard]
     },
     {

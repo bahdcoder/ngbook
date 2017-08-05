@@ -2,15 +2,15 @@
 <nav class="navbar navbar-default navbar-static-top">
   <div class="container">
     <div class="navbar-header">
-      <a class="navbar-brand">
-        Site title
+      <a class="navbar-brand " routerLink="/">
+        Ng Book
       </a>
     </div>
     <div>
       <ul class="nav navbar-nav">
         <li><a *ngIf="isLoggedIn()" routerLink="/dashboard">Dashboard</a></li>
         <li><a *ngIf="isLoggedIn()" routerLink="/create/joke">Create joke</a></li>
-        <li><a *ngIf="isLoggedIn()" [routerLink]="['user/profile', user.id]">My Profile</a></li>
+        <li *ngIf="user"><a *ngIf="isLoggedIn()" [routerLink]="['user/profile', user.id]">My Profile</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">

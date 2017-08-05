@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { AuthService } from './../services/auth.service'
+import { NotifyService } from './../services/notify.service'
 
 @Component({
   selector: 'app-register',
@@ -9,7 +10,8 @@ import { AuthService } from './../services/auth.service'
 export class RegisterComponent implements OnInit {
 
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
+    private noty: NotifyService
   ) { }
 
   ngOnInit() {
@@ -18,6 +20,8 @@ export class RegisterComponent implements OnInit {
     this.authService.register(form.value.name, form.value.email, form.value.password)
                     .then(userData => {
                       this.authService.logUserIn(userData)
+                    }).catch(e => {
+                        this.noty.notify(e.error, 'error')
                     })
   }
 

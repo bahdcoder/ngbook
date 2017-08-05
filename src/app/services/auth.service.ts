@@ -28,10 +28,13 @@ export class AuthService {
 
                             this.bar.done()
                             return userData
+                        }).catch(e => {
+                            this.bar.done() 
+                            return Promise.reject(e.json())
                         })
     }
 
-    login(email: string, password: string): Promise<UserData> {
+    login(email: string, password: string): Promise<any> {
         this.bar.start()
         return this.http.post(`${CONFIG.API_URL}/authenticate`, { email: email, password: password })
                         .toPromise()
@@ -43,6 +46,10 @@ export class AuthService {
 
                             this.bar.done() 
                             return userData
+                        })
+                        .catch(e => {
+                            this.bar.done() 
+                            return Promise.reject(e.json())
                         })
     }
 
