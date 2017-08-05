@@ -1,20 +1,30 @@
  <div class="panel panel-default" *ngIf="joke">
     <div class="panel-heading">
-      <span>{{ joke.title }}</span>
-      <span class="pull-right">
+      <span *ngIf="!editing">{{ joke.title }}</span>
+      <span *ngIf="editing">
+        <input type="text" class="form-control" [formControl]="title">
+      </span>
+      <span class="pull-right" *ngIf="!editing">
         <a [routerLink]="['/user/profile', joke.user.id]">{{ joke.user.name }}</a>
       </span>
     </div>
     <div class="panel-body">
-      <p class="text-center">
+      <p class="text-center" *ngIf="!editing">
         {{ joke.joke }}
+      </p>
+      <p class="text-center" *ngIf="editing">
+        <textarea rows="10" class="form-control" [formControl]="content">
+        </textarea>
       </p>
     </div>
     <div class="panel-footer">
       {{ joke.created_at | prettyDate }}
-      <span *ngIf="canModify()">
+      <span *ngIf="canModify() && !editing">
         <button class="btn btn-xs btn-danger pull-right">Delete</button>
-        <button class="btn btn-xs btn-info pull-right">Edit</button>
+        <button class="btn btn-xs btn-info pull-right" (click)="edit()" style="margin-right: 5px;">Edit</button>
+      </span>
+      <span *ngIf="editing">
+        <button class="btn btn-primary pull-right">Save changes</button>
       </span>
     </div>
   </div>

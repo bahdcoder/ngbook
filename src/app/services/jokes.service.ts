@@ -19,11 +19,13 @@ export class JokeService {
     }
     createJoke(joke) : Promise<any>{
         let url = `${CONFIG.API_URL}/jokes`
+        this.bar.start()
         let body = { title: joke.title, joke: joke.content }
         let options = new RequestOptions({ headers: this.headers })
         return this.http.post(url, body, options)
                         .toPromise()
                         .then(resp => {
+                            this.bar.done() 
                             return resp.json() 
                         })
     }
