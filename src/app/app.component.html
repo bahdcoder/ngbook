@@ -1,19 +1,16 @@
-<ng-progress></ng-progress>
+<ng-progress [color]="'#3097D1'"></ng-progress>
 <nav class="navbar navbar-default navbar-static-top">
   <div class="container">
     <div class="navbar-header">
-      <a class="navbar-brand">
-        Site title
+      <a class="navbar-brand " routerLink="/">
+        Ng Book
       </a>
     </div>
     <div>
       <ul class="nav navbar-nav">
-        <li><a>All jokes</a></li>
-        <li><a *ngIf="isLoggedIn()" [routerLink]="['user/profile', 1]">User 1 Profile</a></li>
-        <li><a *ngIf="isLoggedIn()" [routerLink]="['user/profile', 2]">User 2 Profile</a></li>
-        <li><a *ngIf="isLoggedIn()" [routerLink]="['user/profile', user.id]">My Profile</a></li>
-        <li><a *ngIf="isLoggedIn()" [routerLink]="['user/profile', 1]">Your Profile</a></li>
-        <li><a *ngIf="isLoggedIn()" [routerLink]="['user/profile', 2]">His Profile</a></li>
+        <li><a *ngIf="isLoggedIn()" routerLink="/dashboard">Dashboard</a></li>
+        <li><a *ngIf="isLoggedIn()" routerLink="/create/joke">Create joke</a></li>
+        <li *ngIf="user"><a *ngIf="isLoggedIn()" [routerLink]="['user/profile', user.id]">My Profile</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">

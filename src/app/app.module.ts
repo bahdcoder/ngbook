@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core'
 import { ROUTES } from './routes/routes'
-import { InfiniteScrollModule } from 'ngx-infinite-scroll'
 import { HttpModule } from '@angular/http'
 import { RouterModule } from '@angular/router'
 import { AppComponent } from './app.component'
@@ -10,6 +9,7 @@ import { AuthedGuard } from './guards/authed.guard'
 import { UserService } from './services/user.service'
 import { AuthService } from './services/auth.service'
 import { JokeService } from './services/jokes.service'
+import { GravatarModule } from '@infinitycube/gravatar'
 import { LoginComponent } from './login/login.component'
 import { FollowService } from './services/follow.service'
 import { NotifyService } from './services/notify.service'
@@ -23,7 +23,9 @@ import { RegisterComponent } from './register/register.component'
 import { FollowComponent } from './profile/follow/follow.component'
 import { DashboardComponent } from './dashboard/dashboard.component'
 import { CreateJokeComponent } from './create-joke/create-joke.component'
-import { EditProfileComponent } from './profile/edit-profile/edit-profile.component'
+import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
+import { JokeComponent } from './joke/joke.component';
+import { HomeComponent } from './home/home.component'
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { EditProfileComponent } from './profile/edit-profile/edit-profile.compon
     WallComponent,
     EditProfileComponent,
     FollowComponent,
-    CreateJokeComponent
+    CreateJokeComponent,
+    JokeComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule, 
@@ -46,9 +50,7 @@ import { EditProfileComponent } from './profile/edit-profile/edit-profile.compon
     HttpModule,
     RouterModule.forRoot(ROUTES),
     NgProgressModule,
-    ReactiveFormsModule,
-
-    InfiniteScrollModule
+    GravatarModule
   ],
   providers: [
     AuthService,
