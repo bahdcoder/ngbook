@@ -9,6 +9,7 @@ import { AuthedGuard } from './guards/authed.guard'
 import { UserService } from './services/user.service'
 import { AuthService } from './services/auth.service'
 import { JokeService } from './services/jokes.service'
+import { GravatarModule } from '@infinitycube/gravatar'
 import { LoginComponent } from './login/login.component'
 import { FollowService } from './services/follow.service'
 import { NotifyService } from './services/notify.service'
@@ -46,7 +47,8 @@ import { JokeComponent } from './joke/joke.component'
     ReactiveFormsModule,
     HttpModule,
     RouterModule.forRoot(ROUTES),
-    NgProgressModule
+    NgProgressModule,
+    GravatarModule
   ],
   providers: [
     AuthService,
