@@ -9,7 +9,7 @@ import { FollowService } from './../../services/follow.service'
 export class FollowComponent implements OnInit, OnChanges {
   @Input() currentProfileId
   public isFollowing: boolean 
-  private isLoading: boolean = true 
+  public isLoading: boolean = true 
   constructor(
     private followService: FollowService
   ) { }
